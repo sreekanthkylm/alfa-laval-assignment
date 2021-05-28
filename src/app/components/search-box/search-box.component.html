@@ -1,0 +1,132 @@
+<div class="tm-section tm-bg-img" id="tm-section-1">
+    <div class="tm-bg-transparent ie-container-width-fix-2 tm-search-box">
+        <div class="container ie-h-align-center-fix">
+            <div class="row">
+                <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                    <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                        <div class="form-row tm-search-form-row">
+                            <div class="form-group tm-form-element tm-form-element-50">
+                                <mat-slide-toggle ngDefaultControl [checked]="isOneWay"
+                                    (change)="onJourneyOptionChange($event)">
+                                    One Way
+                                </mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div class="form-row tm-search-form-row">
+                            <div class="form-group tm-form-element tm-form-element-50">
+                                <mat-form-field appearance="none">
+                                    <mat-label>
+                                        <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">
+                                            airline_seat_recline_normal
+                                        </mat-icon>Cabin Class
+                                    </mat-label>
+                                    <mat-select [value]="selectedCabin">
+                                        <mat-option value="ECONOMY">Economy</mat-option>
+                                        <mat-option value="PREMIUM_ECONOMY">Premium Economy</mat-option>
+                                        <mat-option value="BUSINESS">Business</mat-option>
+                                        <mat-option value="FIRST">First Class</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group tm-form-element tm-form-element-50">
+                                <button mat-button (click)="openDialog()">
+                                    <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">perm_identity
+                                    </mat-icon>
+                                    <mat-label>
+                                        <span>{{passengerCount}}</span>
+                                        <span *ngIf="passengerCount==1;else passengers"> Passenger</span>
+                                        <ng-template #passengers> Passengers</ng-template>
+                                    </mat-label>
+                                    <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">arrow_drop_down
+                                    </mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-row tm-search-form-row">
+                            <div class="form-group tm-form-element tm-form-element-50">
+                                <mat-form-field>
+                                    <mat-label>
+                                        <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">flight_takeoff
+                                        </mat-icon>From
+                                    </mat-label>
+                                    <input type="text" placeholder="From" aria-label="Number" matInput
+                                        [formControl]="orginLocControl" [matAutocomplete]="autoFrom">
+                                    <mat-autocomplete autoActiveFirstOption #autoFrom="matAutocomplete">
+                                        <mat-option *ngIf="autoLoading">
+                                            <mat-spinner [diameter]="30"></mat-spinner>
+                                        </mat-option>
+                                        <mat-option *ngFor="let option of filteredFromOptions | async"
+                                            [value]="option.iataCode">
+                                            {{option.detailedName}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group tm-form-element tm-form-element-50">
+                                <mat-form-field>
+                                    <mat-label>
+                                        <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">flight_land
+                                        </mat-icon>To
+                                    </mat-label>
+                                    <input type="text" placeholder="To" aria-label="Number" matInput
+                                        [formControl]="destinationLocControl" [matAutocomplete]="autoTo">
+                                    <mat-autocomplete autoActiveFirstOption #autoTo="matAutocomplete">
+                                        <mat-option *ngIf="autoLoading">
+                                            <mat-spinner [diameter]="30"></mat-spinner>
+                                        </mat-option>
+                                        <mat-option *ngFor="let option of filteredToOptions | async"
+                                            [value]="option.iataCode">
+                                            {{option.detailedName}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group tm-form-element tm-form-element-100">
+                                <div *ngIf="!isOneWay">
+                                    <mat-form-field>
+                                        <mat-label>Dates</mat-label>
+                                        <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker">
+                                            <input matStartDate formControlName="start" placeholder="Depart">
+                                            <input matEndDate formControlName="end" placeholder="Return">
+                                        </mat-date-range-input>
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-date-range-picker #picker></mat-date-range-picker>
+                                    </mat-form-field>
+                                </div>
+                                <div *ngIf="isOneWay">
+                                    <mat-form-field>
+                                        <mat-label>Date</mat-label>
+                                        <input matInput [matDatepicker]="picker" [formControl]="startDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row tm-search-form-row">
+                            <div class="form-group tm-form-element tm-form-element-100">
+                                <button mat-raised-button type="submit" class="btn btn-primary"
+                                    (click)="searchFlightOffers()">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tm-section-common">
+    <div *ngIf="apiLoading" class="container loading-result-container">
+        <div class="flight-loader"></div>
+    </div>
+    <div *ngIf="errorMessage && errorMessage.length>0" class="container loading-result-container">
+        {{errorMessage}}
+    </div>
+    <div *ngIf="resultCount==0" class="container loading-result-container">
+        No Flights Found
+    </div>
+    <div *ngIf="flights.length>0" class="container search-result-container">
+        <app-search-results [flights]="flights" [dictionaries]="dictionaries">
+        </app-search-results>
+    </div>
+</div>

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'alfa-laval-assignment';
+  isDarkTheme: boolean = false;
+
+  updateTheme($event) {
+    this.isDarkTheme = $event;
+  }
+
 }

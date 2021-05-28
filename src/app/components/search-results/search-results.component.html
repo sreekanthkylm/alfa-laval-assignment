@@ -1,0 +1,64 @@
+<div class="row card-group" *ngFor="let flight of flights">
+    <div class="card-group-list">
+        <div class="card" *ngFor="let itineraries of flight.itineraries">
+            <div class="card-header">
+                {{itineraries.segments[0].carrierCode | FlightName : dictionaries.carriers}}
+            </div>
+            <div class="card-body">
+                <div class="wrap">
+                    <div class="itemCont">
+                        <div class="item">
+                            <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">flight_takeoff
+                            </mat-icon>
+                        </div>
+                        <div class="item">
+                            <span class="d-block">{{itineraries.segments[0].departure.iataCode}}</span>
+                        </div>
+                        <div class="item">
+                            <span class="d-block">{{itineraries.segments[0].departure.at | date:'H:mm' |
+                                lowercase}}</span>
+                        </div>
+                    </div>
+                    <div class="itemCont">
+                        <div class="item transform">
+                            <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">flight
+                            </mat-icon>
+                        </div>
+                        <div class="item">
+                            <span class="d-block">{{itineraries.segments[0].duration | slice:2}}</span>
+                        </div>
+                        <div class="item">
+                            <span class="d-block" *ngIf="itineraries.segments[0].numberOfStops==0">
+                                Direct</span>
+                            <span class="d-block" *ngIf="itineraries.segments[0].numberOfStops==1">
+                                {{itineraries.segments[0].numberOfStops}} Stop</span>
+                            <span class="d-block" *ngIf="itineraries.segments[0].numberOfStops>1">
+                                {{itineraries.segments[0].numberOfStops}} Stops</span>
+                        </div>
+                    </div>
+                    <div class="itemCont">
+                        <div class="item">
+                            <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font">flight_land
+                            </mat-icon>
+                        </div>
+                        <div class="item">
+                            <span class="d-block">{{itineraries.segments[0].arrival.iataCode}}</span>
+                        </div>
+                        <div class="item">
+                            <span class="d-block">{{itineraries.segments[0].arrival.at| date: 'H:mm' |
+                                lowercase}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-price">
+        <div class="card-body">
+            <div class="flight_price">
+                <h3>From</h3>
+                <h4>{{flight.price.grandTotal}} {{flight.price.currency}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

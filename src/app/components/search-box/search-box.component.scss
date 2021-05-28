@@ -1,0 +1,33 @@
+form {
+    background: rgb(255 255 255 / 70%);
+    border-radius: 20px;
+    mat-form-field {
+        width: 100%;
+    }
+    .mat-button {
+        padding: 0px !important;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+mat-option {
+    font-size: 10px;
+}
+.loading-result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: red;
+    .flight-loader {
+        background: url("/assets/img/flightloader.gif");
+        width: 200px;
+        height: 200px;
+        background-repeat: no-repeat;
+    }
+}
+.search-result-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

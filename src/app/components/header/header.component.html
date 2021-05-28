@@ -1,0 +1,41 @@
+<div class="tm-top-bar-bg"></div>
+<div class="tm-top-bar" id="tm-top-bar">
+    <!-- Top Navbar -->
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg narbar-light">
+                <a class="navbar-brand mr-auto tm-logo" routerlink="lander">
+                    <img src="assets/img/logo.png" alt="Site logo">
+                    Fly High
+                </a>
+                <button type="button" (click)="togglenav()" id="nav-toggle" class="navbar-toggler collapsed"
+                    data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white"
+                    [ngClass]="btnStyle ? 'tm-display-block' : '' ">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Top Destinations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Cheapest Flights</a>
+                        </li>
+                        <li class="nav-item">
+                            <button md-menu-item class="color_theme_button" (click)="changeTheme()">
+                                <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
+                                    aria-hidden="true" data-mat-icon-type="font">format_color_fill</mat-icon>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

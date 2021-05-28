@@ -1,0 +1,27 @@
+<h4 mat-dialog-title>Passenger Details</h4>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <mat-label>Adults (Age>12)</mat-label>
+            <input matInput type="number" [(ngModel)]="data.adults">
+        </mat-form-field>
+    </div>
+    <div class="form-row">
+        <div class="form-group tm-form-element tm-form-element-2">
+            <mat-form-field>
+                <mat-label>Children (Ages 2 - 12)</mat-label>
+                <input matInput type="number" [(ngModel)]="data.children">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="form-row ">
+        <mat-form-field>
+            <mat-label>Infants (On Lap)</mat-label>
+            <input matInput type="number" [(ngModel)]="data.infants">
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

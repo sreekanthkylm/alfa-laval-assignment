@@ -1,0 +1,10 @@
+.color_theme_button {
+    width: 100%;
+    cursor: pointer;
+    padding: 30px;
+    background: none;
+    border: none;
+    &:focus {
+        outline: none !important;
+    }
+}

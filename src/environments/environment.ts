@@ -3,8 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
 };
+
+export const API_BASE_URL = 'https://test.api.amadeus.com/';
+export const TOKEN_API_URL = 'https://test.api.amadeus.com/v1/security/oauth2/token';
+export const AUTH_DETAILS = {
+  CLIENT_ID: '2YHFb1t0fWGv3mAakt3TAkOcljwtiVE1',
+  CLIENT_SECRET: 'R5uShC7EGkqOwymw',
+  CLIENT_CREDNTIALS: 'client_credentials'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
