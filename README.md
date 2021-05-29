@@ -11,6 +11,7 @@ Following Technologies/Tools Used for development
 • Angular 11 <br>
 • Angular CLI <br>
 • Angular Material  <br>
+• RXJS<br>
 • CSS FlexBox Concept<br>
 
 Features
