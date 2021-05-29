@@ -48,3 +48,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## ScreenShots
+![screencapture-localhost-4200-lander-2021-05-29-10_11_38](https://user-images.githubusercontent.com/18134459/120058602-b2df2680-c069-11eb-9a5e-ab0ef7cb6e44.png)
+
+![screencapture-localhost-4200-lander-2021-05-29-10_10_39](https://user-images.githubusercontent.com/18134459/120058605-b5418080-c069-11eb-9035-a41d0d3c730d.png)
+
+![screencapture-localhost-4200-lander-2021-05-29-09_52_02](https://user-images.githubusercontent.com/18134459/120058606-b672ad80-c069-11eb-89d6-11a1ad6ffaf0.png)
+
+![screencapture-localhost-4200-lander-2021-05-29-09_51_47](https://user-images.githubusercontent.com/18134459/120058607-b7a3da80-c069-11eb-96c8-779a22a34723.png)
