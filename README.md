@@ -8,23 +8,23 @@ This SPA have a responsive UI with dark and light toggle mode.
 
 Following Technologies/Tools Used for development
 
-• Angular 11 
-• Angular CLI 
-• Angular Material  
-• CSS FlexBox Concept
+• Angular 11 <br>
+• Angular CLI <br>
+• Angular Material  <br>
+• CSS FlexBox Concept<br>
 
 Features
 
-• Http Interceptors for token generation and authentication
-• Dark and Light toggle mode and angular theming for dark mode
-• Angular Api Service integration  
-• Custom Pipe Integration
-• Confidential Datas moved to environment file
-• Custom Module integration for Angular Material 
-• Fully Responsive
-• Splitted Components Integration
-• AutoComplete feature for destination and origin fields
-• Basic Routing Integration
+• Http Interceptors for token generation and authentication <br>
+• Dark and Light toggle mode and angular theming for dark mode <br>
+• Angular Api Service integration   <br>
+• Custom Pipe Integration<br>
+• Confidential Datas moved to environment file<br>
+• Custom Module integration for Angular Material <br>
+• Fully Responsive<br>
+• Splitted Components Integration<br>
+• AutoComplete feature for destination and origin fields<br>
+• Basic Routing Integration<br>
 
 
 ## Development server
