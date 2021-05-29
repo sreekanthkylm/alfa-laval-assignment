@@ -6,27 +6,36 @@ This single page application (SPA) that will let us search flights from the insp
 
 This SPA have a responsive UI with dark and light toggle mode.
 
-Following Technologies/Tools Used for development
+## Technologies/Tools stack used for development
 
 • Angular 11 <br>
+• Typescript <br>
 • Angular CLI <br>
-• Angular Material  <br>
-• RXJS<br>
-• CSS FlexBox Concept<br>
+• Angular Material <br>
+• RXJS <br>
+• Bootstrap <br>
+• SCSS <br>
+• CSS Flexbox Concept <br>
+• HTML 5 <br>
 
-Features
+
+## Features
 
 • Http Interceptors for token generation and authentication <br>
+• Session storage for token storage <br>
 • Dark and Light toggle mode and angular theming for dark mode <br>
 • Angular Api Service integration   <br>
-• Custom Pipe Integration<br>
+• Custom Pipe Integration <br>
 • Confidential Datas moved to environment file<br>
 • Custom Module integration for Angular Material <br>
-• Fully Responsive<br>
+• Fully Responsive <br>
 • Splitted Components Integration<br>
 • AutoComplete feature for destination and origin fields<br>
 • Basic Routing Integration<br>
 
+## Installing code in local environment
+
+Download the zip folder and run `npm install` for node modules installation
 
 ## Development server
 
