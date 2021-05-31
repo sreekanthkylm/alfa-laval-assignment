@@ -28,7 +28,10 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 401) {
-                    // calling refresh token api and if got success extracting token from response and calling failed api due to 401                    
+                    // calling refresh token api and if got success extracting token from response and calling failed api due to 401 
+                    if (sessionStorage.getItem("ACCESS_TOKEN") !== null) {
+                        sessionStorage.removeItem('ACCESS_TOKEN');
+                    }
                     return this.handle401Error(request, next);
                 } // If api not throwing 401 but gives an error throwing error
                 else {

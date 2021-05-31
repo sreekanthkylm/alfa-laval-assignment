@@ -44,6 +44,9 @@ export class SearchBoxComponent implements OnInit {
   dictionaries = [];
   resultCount: number;
   errorMessage: string;
+  autoCompleteInputMinLength: number = 2;
+  fromOptionSelected: boolean = false;
+  toOptionSelected: boolean = false;
 
   constructor(
     private amadeusApiService: AmadeusApiService,
@@ -51,42 +54,61 @@ export class SearchBoxComponent implements OnInit {
     private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.orginLocControl.valueChanges.pipe(filter(v => v.length > 2), distinctUntilChanged(), debounceTime(this.debounceTime)).subscribe(newvalue =>
+    this.orginLocControl.valueChanges.pipe(filter(v => v.length > this.autoCompleteInputMinLength), distinctUntilChanged(), debounceTime(this.debounceTime)).subscribe(newvalue =>
       this.getFromPortDetails(newvalue)
     );
-    this.destinationLocControl.valueChanges.pipe(filter(v => v.length > 2), distinctUntilChanged(), debounceTime(this.debounceTime)).subscribe(newvalue =>
+
+    this.destinationLocControl.valueChanges.pipe(filter(v => v.length > this.autoCompleteInputMinLength), distinctUntilChanged(), debounceTime(this.debounceTime)).subscribe(newvalue =>
       this.getToPortDetails(newvalue)
     );
   }
 
+  onFromSelect() {
+    this.fromOptionSelected = true;
+  }
+
+  onToSelect() {
+    this.toOptionSelected = true;
+  }
+
   getFromPortDetails($event) {
-    this.autoLoading = true;
-    this.amadeusApiService.getportDetails($event).subscribe((response: any) => {
-      if (response.data) {
-        const options = [];
-        response.data.forEach(function (item) {
-          options.push(item);
-        });
-        this.fromOptions = options;
-      }
-      this.filteredFromOptions = this.orginLocControl.valueChanges.pipe(startWith(''), map(value => this._from_filter(value)));
-      this.autoLoading = false;
-    })
+    if (!this.fromOptionSelected) {
+      this.autoLoading = true;
+      this.amadeusApiService.getportDetails($event).subscribe((response: any) => {
+        if (response.data) {
+          const options = [];
+          response.data.forEach(function (item) {
+            options.push(item);
+          });
+          this.fromOptions = options;
+        }
+        this.filteredFromOptions = this.orginLocControl.valueChanges.pipe(startWith(''), map(value => this._from_filter(value)));
+        this.autoLoading = false;
+      })
+    }
+    else {
+      this.fromOptionSelected = !this.fromOptionSelected;
+    }
   }
 
   getToPortDetails($event) {
-    this.autoLoading = true;
-    this.amadeusApiService.getportDetails($event).subscribe((response: any) => {
-      if (response.data) {
-        const options = [];
-        response.data.forEach(function (item) {
-          options.push(item);
-        });
-        this.toOptions = options;
-      }
-      this.filteredToOptions = this.destinationLocControl.valueChanges.pipe(startWith(''), map(value => this._to_filter(value)));
-      this.autoLoading = false;
-    })
+    if (!this.toOptionSelected) {
+      this.autoLoading = true;
+      this.amadeusApiService.getportDetails($event).subscribe((response: any) => {
+        if (response.data) {
+          const options = [];
+          response.data.forEach(function (item) {
+            options.push(item);
+          });
+          this.toOptions = options;
+        }
+        this.filteredToOptions = this.destinationLocControl.valueChanges.pipe(startWith(''), map(value => this._to_filter(value)));
+        this.autoLoading = false;
+      })
+    }
+    else {
+      this.toOptionSelected = !this.toOptionSelected;
+    }
   }
 
   private _from_filter(value: string): string[] {

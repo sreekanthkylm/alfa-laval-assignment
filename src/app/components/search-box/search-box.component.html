@@ -56,8 +56,8 @@
                                             <mat-spinner [diameter]="30"></mat-spinner>
                                         </mat-option>
                                         <mat-option *ngFor="let option of filteredFromOptions | async"
-                                            [value]="option.iataCode">
-                                            {{option.detailedName}}
+                                            [value]="option.iataCode" (onSelectionChange)="onFromSelect()">
+                                            {{option.address.cityName}} - {{option.name}} - {{option.subType}}
                                         </mat-option>
                                     </mat-autocomplete>
                                 </mat-form-field>
@@ -75,8 +75,8 @@
                                             <mat-spinner [diameter]="30"></mat-spinner>
                                         </mat-option>
                                         <mat-option *ngFor="let option of filteredToOptions | async"
-                                            [value]="option.iataCode">
-                                            {{option.detailedName}}
+                                            [value]="option.iataCode" (onSelectionChange)="onToSelect()">
+                                            {{option.address.cityName}} - {{option.name}} - {{option.subType}}
                                         </mat-option>
                                     </mat-autocomplete>
                                 </mat-form-field>
