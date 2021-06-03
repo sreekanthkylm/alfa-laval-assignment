@@ -31,6 +31,7 @@ export class SearchBoxComponent implements OnInit {
   filteredToOptions: Observable<any[]>;
   fromOptions = [];
   toOptions = [];
+  minDate = new Date();
   dateRange = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
@@ -50,7 +51,7 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(
     private amadeusApiService: AmadeusApiService,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     private datePipe: DatePipe) { }
 
   ngOnInit(): void {

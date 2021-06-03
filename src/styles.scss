@@ -871,3 +871,9 @@ video {
 .slider > a:focus {
     background: #000;
 }
+.cdk-overlay-container {
+    top: 20px;
+}
+button:focus {
+    outline: none !important;
+}

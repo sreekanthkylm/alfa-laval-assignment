@@ -22,6 +22,10 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // Taking an access token
         const accessToken = sessionStorage.getItem('ACCESS_TOKEN');
+        // if token is not available generate token   
+        if (accessToken === null && request.url != TOKEN_API_URL) {
+            return this.handle401Error(request, next);
+        }
         // cloing a request and adding Authorization header with token
         request = this.addToken(request, accessToken);
         // sending request to server and checking for error with status 401 unauthorized
@@ -29,7 +33,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
             catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 401) {
                     // calling refresh token api and if got success extracting token from response and calling failed api due to 401 
-                    if (sessionStorage.getItem("ACCESS_TOKEN") !== null) {
+                    if (accessToken !== null) {
                         sessionStorage.removeItem('ACCESS_TOKEN');
                     }
                     return this.handle401Error(request, next);

@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RefreshTokenInterceptor } from './auth/token.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+import localeSv from '@angular/common/locales/sv';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -18,6 +20,7 @@ import { AmadeusApiService } from './services/amadeus-api.service';
 import { DatePipe } from '@angular/common';
 import { FlightNamePipe } from './pipes/flightname.pipe';
 
+registerLocaleData(localeSv, 'sv-SE');
 @NgModule({
   declarations: [
     FlightNamePipe, AppComponent, HeaderComponent, FooterComponent, LanderComponent, SearchBoxComponent, SearchResultsComponent, SearchBoxPopupComponent
@@ -32,8 +35,10 @@ import { FlightNamePipe } from './pipes/flightname.pipe';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
-    AmadeusApiService,
+    { provide: LOCALE_ID, useValue: 'sv-SE' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'SEK' },
     DatePipe,
+    AmadeusApiService,
   ],
   bootstrap: [AppComponent]
 })

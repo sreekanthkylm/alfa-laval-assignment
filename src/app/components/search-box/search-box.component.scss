@@ -7,7 +7,7 @@ form {
     .mat-button {
         padding: 0px !important;
         &:focus {
-            outline: none;
+            outline: none !important;
         }
     }
     .mat-autocomplete-panel {

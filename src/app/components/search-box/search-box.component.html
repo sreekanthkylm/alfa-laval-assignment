@@ -85,27 +85,29 @@
                                 <div *ngIf="!isOneWay">
                                     <mat-form-field>
                                         <mat-label>Dates</mat-label>
-                                        <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker">
+                                        <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker"
+                                            [min]="minDate">
                                             <input matStartDate formControlName="start" placeholder="Depart">
                                             <input matEndDate formControlName="end" placeholder="Return">
                                         </mat-date-range-input>
                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                        <mat-date-range-picker #picker></mat-date-range-picker>
+                                        <mat-date-range-picker #picker touchUi="true"></mat-date-range-picker>
                                     </mat-form-field>
                                 </div>
                                 <div *ngIf="isOneWay">
                                     <mat-form-field>
                                         <mat-label>Date</mat-label>
-                                        <input matInput [matDatepicker]="picker" [formControl]="startDate">
+                                        <input matInput [matDatepicker]="picker" [formControl]="startDate"
+                                            [min]="minDate">
                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker></mat-datepicker>
+                                        <mat-datepicker #picker touchUi="true"></mat-datepicker>
                                     </mat-form-field>
                                 </div>
                             </div>
                         </div>
                         <div class="form-row tm-search-form-row">
                             <div class="form-group tm-form-element tm-form-element-100">
-                                <button mat-raised-button type="submit" class="btn btn-primary"
+                                <button mat-raised-button type="submit" class="btn btn-primary" [disabled]="apiLoading"
                                     (click)="searchFlightOffers()">Search</button>
                             </div>
                         </div>

@@ -22,6 +22,7 @@ export class AmadeusApiService {
             .set('children', searchdata.passengerData.children)
             .set('infants', searchdata.passengerData.infants)
             .set('travelClass', searchdata.travelClass)
+            .set('currencyCode', 'SEK')
             .set('max', '50');
         if (searchdata.endDate) {
             params = params.set('returnDate', searchdata.endDate)
