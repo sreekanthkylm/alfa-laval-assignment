@@ -42,9 +42,11 @@ Download the zip folder and run `npm install` for node modules installation
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## ScreenShots
-![screencapture-localhost-4200-lander-2021-05-29-10_11_38](https://user-images.githubusercontent.com/18134459/120058602-b2df2680-c069-11eb-9a5e-ab0ef7cb6e44.png)
+![screencapture-localhost-4200-lander-2021-06-03-08_40_12](https://user-images.githubusercontent.com/18134459/120580870-7f284600-c447-11eb-8a05-baaf6adb1255.png)
 
-![screencapture-localhost-4200-lander-2021-05-29-10_10_39](https://user-images.githubusercontent.com/18134459/120058605-b5418080-c069-11eb-9035-a41d0d3c730d.png)
+![screencapture-localhost-4200-lander-2021-06-03-08_38_30](https://user-images.githubusercontent.com/18134459/120580877-82233680-c447-11eb-929f-b488ed376010.png)
+
+![screencapture-localhost-4200-lander-2021-06-03-08_36_11](https://user-images.githubusercontent.com/18134459/120580881-82bbcd00-c447-11eb-9bb9-2ad482968f12.png)
 
 ![screencapture-localhost-4200-lander-2021-05-29-09_52_02](https://user-images.githubusercontent.com/18134459/120058606-b672ad80-c069-11eb-89d6-11a1ad6ffaf0.png)
 
