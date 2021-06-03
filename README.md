@@ -2,9 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.0.
 
-This single page application (SPA) that will let us search flights from the inspiration-search endpoint from the Amadeus open source API (https://developers.amadeus.com/self-service/category/air/api-doc/flight-inspiration-search)
+Amadeus Self-Service flight APIs are used for generating responses.
 
-This SPA have a responsive UI with dark and light toggle mode.
+This single page application (SPA) that will let us search flights from the inspiration-search endpoint from the Amadeus open source API <br> (https://developers.amadeus.com/self-service/category/air/api-doc/flight-inspiration-search)
 
 ## Technologies/Tools stack used for development
 
@@ -15,22 +15,22 @@ This SPA have a responsive UI with dark and light toggle mode.
 • RXJS <br>
 • Bootstrap <br>
 • SCSS <br>
-• CSS Flexbox Concept <br>
+• CSS Flexbox <br>
 • HTML 5 <br>
-
 
 ## Features
 
+• Dark and Light toggle mode and angular theming for dark mode <br>
+• Fully Responsive Using Flex Layout<br>
+• AutoComplete feature for destination and origin fields<br>
+• Local Currency Integration- Swedish Krona<br>
 • Http Interceptors for token generation and authentication <br>
 • Session storage for token storage <br>
-• Dark and Light toggle mode and angular theming for dark mode <br>
 • Angular Api Service integration   <br>
 • Custom Pipe Integration <br>
+• Splitted Components Integration<br>
 • Confidential Datas moved to environment file<br>
 • Custom Module integration for Angular Material <br>
-• Fully Responsive <br>
-• Splitted Components Integration<br>
-• AutoComplete feature for destination and origin fields<br>
 • Basic Routing Integration<br>
 
 ## Installing code in local environment
@@ -40,22 +40,6 @@ Download the zip folder and run `npm install` for node modules installation
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## ScreenShots
 ![screencapture-localhost-4200-lander-2021-05-29-10_11_38](https://user-images.githubusercontent.com/18134459/120058602-b2df2680-c069-11eb-9a5e-ab0ef7cb6e44.png)
